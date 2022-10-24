@@ -9,7 +9,7 @@ const Login=()=>{
         <h1>Welcome to </h1>
         <h2>Irancell Labs</h2>
       </div>
-      
+
     </div>
     <div className={classes.colright}>
       <div className={classes.loginform}>
