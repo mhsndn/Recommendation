@@ -6,8 +6,8 @@ const Login=()=>{
   <div className={classes.container}>
     <div className={classes.colleft}>
       <div className={classes.logintext}>
-        <h2>Welcome </h2>
-        <h3>Irancell Labs</h3>
+        <h1>Welcome to </h1>
+        <h2>Irancell Labs</h2>
       </div>
     </div>
     <div className={classes.colright}>
