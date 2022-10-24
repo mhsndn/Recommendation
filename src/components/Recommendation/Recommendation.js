@@ -8,18 +8,18 @@ const dispatch=useDispatch();
 const setForm=(name,value)=>{
       dispatch(formAction.setRecommendation({name:name,value:value}))
    }
-       const rows=recommendationTableData?.map(row=>{
-         return(<tr >
-            <td>{row.name}</td>
-            <td>{row.recommendation}</td>
-            <td>{row.adminResponse} </td>
-         </tr>)
-      })
+      //  const rows=recommendationTableData?.map(row=>{
+      //    return(<tr >
+      //       <td>{row.name}</td>
+      //       <td>{row.recommendation}</td>
+      //       <td>{row.adminResponse} </td>
+      //    </tr>)
+      // })
 
  
   const Submit=(event)=>{
    event.preventDefault();
-  
+  console.log(recommendationTableData)
   }
     return(
         <Page title='Recommendation'>
@@ -46,7 +46,7 @@ const setForm=(name,value)=>{
                </tr>
                </thead>
                <tbody>
-               {rows}
+               {/* {rows} */}
                </tbody>
             
             </table>

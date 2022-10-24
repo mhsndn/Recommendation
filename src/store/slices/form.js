@@ -7,7 +7,12 @@ const initialState= {
       name:'',
       password:''
   },
-  recommendation:[]
+  recommendation:{
+    name:'',
+    recommendation:'',
+    adminResponse:''
+
+  }
 }
 
 export const Form = createSlice({
