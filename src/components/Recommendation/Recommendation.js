@@ -1,7 +1,9 @@
+import Page from '../Core/Header/Page';
 import classes from './Recommendation.module.scss';
 
 const Recommendation=()=>{
     return(
+        <Page title='Recommendation'>
     <div className={classes.recommendation}>
         <form  className={classes.recommendationForm}>
           <div>
@@ -37,6 +39,7 @@ const Recommendation=()=>{
 </div>
 
     </div>
+    </Page>
     )
 }
 
