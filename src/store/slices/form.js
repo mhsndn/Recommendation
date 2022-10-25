@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 const initialState= {
   auth:false,
   login:{
-      name:'',
-      password:''
+    username:'',
+    password:''
   },
   recommendation:{
     id:null,
@@ -40,6 +40,12 @@ export const Form = createSlice({
     },
     setResponse(state){
       state.recommendations= [...state.responses]
+    },
+    setLoginForm(state,action){
+      state.login[action.payload.name]=action.payload.value;
+    },
+    setAuth(state,action){
+      state.auth=action.payload;
     }
 
   },
