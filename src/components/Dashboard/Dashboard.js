@@ -7,31 +7,26 @@ import { useEffect } from 'react';
 
 const Dashboard=()=>{
 const dispatch=useDispatch();
- const recommendationTableData=useSelector(state=>state.form.recommendations)
-// const setForm=(name,value)=>{
-//       dispatch(formAction.setRecommendation({name:name,value:value}))
-//    }
+ const recommendationTableData=useSelector(state=>state.form.responses)
+const setDashboardForm=(name,value,id)=>{
+      dispatch(formAction.setResponseForm({name:name,value:value,id:id}))
+   }
 
-useEffect(()=>{
-
-},[])
 const rows=recommendationTableData?.map(row=>{
-   return(<tr key={row.name} >
-      <td>{row.name}</td>
-      <td>{row.recommendation}</td>
-      <td>{row.adminResponse} </td>
+   return(<tr key={row.id} >
+            <td>{row.name}</td>
+            <td>{row.recommendation}</td>
+            <td> <textarea onChange={(e)=>setDashboardForm('adminResponse',e.target.value,row.id)} defaultValue={row.adminResponse}></textarea> </td>
    </tr>)
 })
   
   const Submit=(event)=>{
    event.preventDefault();
-   // dispatch(formAction.setRow())
+   dispatch(formAction.setResponse());
   }
     return(
         <Page title='Dashboard'>
     <div className={classes.dashboard}>
-        <form  className={classes.dashboardForm} onSubmit={Submit}>
-        </form>
          <div className={classes.tableUsers}>
             <h1 className={classes.header}>All Recommendations:</h1>
             <table cellSpacing="0" className={classes.dashboardtable}>
@@ -45,8 +40,11 @@ const rows=recommendationTableData?.map(row=>{
                <tbody>
                {rows}
                </tbody>
-            
             </table>
+            <form  className={classes.dashboardForm} onSubmit={Submit}>
+            <button type='submit'>submit</button>
+         </form>
+      
          </div>
     </div>
     </Page>
