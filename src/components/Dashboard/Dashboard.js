@@ -7,12 +7,12 @@ import { useEffect } from 'react';
 
 const Dashboard=()=>{
 const dispatch=useDispatch();
- const recommendationTableData=useSelector(state=>state.form.responses)
+ const responseTableData=useSelector(state=>state.form.responses)
 const setDashboardForm=(name,value,id)=>{
       dispatch(formAction.setResponseForm({name:name,value:value,id:id}))
    }
 
-const rows=recommendationTableData?.map(row=>{
+const rows=responseTableData?.map(row=>{
    return(<tr key={row.id} >
             <td>{row.name}</td>
             <td>{row.recommendation}</td>
