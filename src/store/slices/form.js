@@ -31,6 +31,7 @@ export const Form = createSlice({
         state.recommendation,
       ]
      
+      localStorage['recommendations']= state.recommendations;
 
     }
 
