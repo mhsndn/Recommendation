@@ -7,12 +7,12 @@ const initialState= {
       name:'',
       password:''
   },
-  // recommendation:{
-  //   name:'',
-  //   recommendation:'',
-  //   adminResponse:''
+  recommendation:{
+    name:'',
+    recommendation:'',
+    adminResponse:''
 
-  // }
+  },
   recommendations:[]
 }
 
@@ -21,14 +21,18 @@ export const Form = createSlice({
   initialState,
   reducers: {
     setRecommendation(state,action){
-      // state.recommendation[action.payload.name]=action.payload.value;
-      let recommendation = action.payload || []
-      recommendation = [
-          ...recommendation,
-          { name: '', recommendation: '', adminResponse: ''},
-        ]
-        state.recommendations=  recommendation
-       },
+
+      state.recommendation[action.payload.name]=action.payload.value;
+   
+    },
+     setRow(state){
+      state.recommendations= [
+        ...state.recommendations,
+        state.recommendation,
+      ]
+     
+
+    }
 
   },
 })
