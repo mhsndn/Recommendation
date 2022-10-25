@@ -9,6 +9,7 @@ const Login=()=>{
   const dispatch=useDispatch();
   let navigate = useNavigate();
   const loginData=useSelector(state=>state.form.login)
+  const auth=useSelector(state=>state.form.auth)
   const setLoginForm=(name,value)=>{
     dispatch(formAction.setLoginForm({name:name,value:value}))
  }
@@ -24,11 +25,14 @@ const Login=()=>{
       setTimeout(ShowAlert,500)
     }
   }
+const Logout=()=>{
+  dispatch(formAction.setAuth(false));
 
+}
     return(
     <div>
       <Page title='Admin' alertText='username or password is incorrect'>
-        <div className={classes.wrapper}>
+     { !auth ?  <div className={classes.wrapper}>
           <div className={classes.container}>
             <div className={classes.colleft}>
               <div className={classes.logintext}>
@@ -55,7 +59,10 @@ const Login=()=>{
               </div>
             </div>
           </div>
-          </div>
+          </div>:
+          <div className={classes.logout}>
+          <button type='submit' onClick={Logout}>Logout</button>
+          </div>}
     </Page>
  </div>);
 }
