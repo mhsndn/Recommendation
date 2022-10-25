@@ -4,7 +4,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { formAction } from '../../store/slices/form';
 const Recommendation=()=>{
 const dispatch=useDispatch();
- const recommendationTableData=useSelector(state=>state.form.recommendation)
+ const recommendationTableData=useSelector(state=>state.form.recommendations)
 const setForm=(name,value)=>{
       dispatch(formAction.setRecommendation({name:name,value:value}))
    }
