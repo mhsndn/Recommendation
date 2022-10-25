@@ -3,6 +3,7 @@ import Recommendation from '../../components/Recommendation/Recommendation'
 import { v4 as uuidv4 } from 'uuid';
 const initialState= {
   auth:false,
+  alert:false,
   login:{
     username:'',
     password:''
@@ -33,6 +34,13 @@ export const Form = createSlice({
       ]
       state.responses= [...state.recommendations]
 
+    }, 
+      setResetRecommendation(state){
+      state.recommendation.name='';
+      state.recommendation.recommendation='';
+      state.recommendation.adminResponse='';
+    
+
     },
     setResponseForm(state,action){
       state.responses.filter(item=>item.id===action.payload.id?item.adminResponse=action.payload.value:'')
@@ -46,6 +54,9 @@ export const Form = createSlice({
     },
     setAuth(state,action){
       state.auth=action.payload;
+    },  
+    setAlert(state,action){
+      state.alert=action.payload;
     }
 
   },

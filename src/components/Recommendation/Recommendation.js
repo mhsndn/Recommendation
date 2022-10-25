@@ -2,11 +2,15 @@ import Page from '../Core/Header/Page';
 import classes from './Recommendation.module.scss';
 import { useDispatch,useSelector } from 'react-redux';
 import { formAction } from '../../store/slices/form';
-import {useRef } from 'react'
+import {useRef,useEffect } from 'react'
 const Recommendation=()=>{
 const dispatch=useDispatch();
 const formRef = useRef();
  const recommendationTableData=useSelector(state=>state.form.recommendations)
+ const recommendationInputData=useSelector(state=>state.form.recommendation)
+ useEffect(() => {
+   dispatch(formAction.setResetRecommendation());
+ }, []);
 const setForm=(name,value)=>{
       dispatch(formAction.setRecommendationForm({name:name,value:value}))
    }
@@ -17,19 +21,35 @@ const setForm=(name,value)=>{
             <td>{row.adminResponse} </td>
          </tr>)
       })
-  
+  console.log(recommendationInputData.name.length,'oooooooooooooooo')
   const Submit=(event)=>{
    event.preventDefault();
-   dispatch(formAction.setsetRecommendation());
+   if(
+      recommendationInputData.name.length ===0 
+       ||
+      recommendationInputData.name.length>=10 
+   ||
+   recommendationInputData.recommendation.length===0
+   ||
+   recommendationInputData.recommendation.length>=10
+   ){
+      dispatch(formAction.setAlert(true));
+   
+   }else{
+      dispatch(formAction.setsetRecommendation());
+      dispatch(formAction.setResetRecommendation());
+  
+   }
+  
    formRef.current.reset()
   }
     return(
-        <Page title='Recommendation'>
+        <Page title='Recommendation' alertText='name or recommendation are empty or they are too long'>
     <div className={classes.recommendation}>
         <form  className={classes.recommendationForm} onSubmit={Submit} ref={formRef}>
           <div>
             <label>Name:</label>
-            <input type="text" placeholder=" name " required onChange={(e)=>setForm('name',e.target.value)}/>
+            <input type="text" placeholder=" name "  onChange={(e)=>setForm('name',e.target.value)}/>
           </div>
           <div>
             <label>Recommendation:</label>

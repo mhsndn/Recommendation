@@ -4,25 +4,30 @@ import { useDispatch,useSelector } from 'react-redux';
 import { formAction } from '../../store/slices/form';
 import { useNavigate } from "react-router-dom";
 
+
 const Login=()=>{
   const dispatch=useDispatch();
   let navigate = useNavigate();
   const loginData=useSelector(state=>state.form.login)
-
   const setLoginForm=(name,value)=>{
     dispatch(formAction.setLoginForm({name:name,value:value}))
+ }
+ const ShowAlert=()=>{
+  dispatch(formAction.setAlert(true))
  }
   const Submit=(event)=>{
     event.preventDefault();
     if(loginData.username==='admin' && loginData.password==='admin' ){
       dispatch(formAction.setAuth(true));
       navigate(`/dashboard`);
+    }else{
+      setTimeout(ShowAlert,500)
     }
   }
 
     return(
     <div>
-      <Page title='Admin'>
+      <Page title='Admin' alertText='username or password is incorrect'>
         <div className={classes.wrapper}>
           <div className={classes.container}>
             <div className={classes.colleft}>
