@@ -12,7 +12,8 @@ const initialState= {
     recommendation:'',
     adminResponse:''
 
-  }
+  },
+  recommendations:[]
 }
 
 export const Form = createSlice({
@@ -20,9 +21,18 @@ export const Form = createSlice({
   initialState,
   reducers: {
     setRecommendation(state,action){
+
       state.recommendation[action.payload.name]=action.payload.value;
    
-       },
+    },
+     setRow(state){
+      state.recommendations= [
+        ...state.recommendations,
+        state.recommendation,
+      ]
+     
+
+    }
 
   },
 })
