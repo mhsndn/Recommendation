@@ -1,5 +1,3 @@
-
-
 table {
    font-family: 'Arial';
    width: 100%;
@@ -37,16 +35,10 @@ table {
    }
  }
 
-
  .textArea{
    width: 100%;
    height: 3rem;
    position: relative;
-}
-textarea{
-   width: 100%;
-   max-width: 40rem;
-   height: 100%;
    resize: none;
    border: none;
    outline: none;
@@ -57,13 +49,13 @@ textarea{
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    border-radius:1rem ;
 }
+
 .tableUsers h1{
    color:#495057;
 }
 .recommendation{
  width: 80%;
  margin: 10rem auto;
-
 }
  .recommendationForm div {
    display:flex ;
@@ -74,20 +66,22 @@ textarea{
    font-size: 2rem;
    color:#495057;
    align-self: center;
+   
  } 
  .recommendationForm input  {
    display: block;
-   width: 36%;
+   width: 75%;
    height: 35px;
    padding: 0 10px;
    outline: none;
    border: 1px solid #cccccc;
    border-radius: 1rem;
  }
+ 
 .recommendationForm button {
   display: inline-block;
   align-self: center;
-  width: 30%;
+  width: 20%;
   height: 4rem;
   margin-top: 5px;
   margin-left: 2rem;
@@ -107,4 +101,16 @@ textarea{
 .recommendationForm input[type=submit]:hover {
   color: #ffffff;
   box-shadow: inset 55rem 0 0 0 #44c7f5;
+}
+
+
+@media(max-width: 575.98px) {
+  .recommendationForm div {
+    display: block;
+    margin-top: 2rem;
+  }
+  .recommendationForm button{
+    width: 50%;
+    margin-bottom: 2rem;
+  }
 }
