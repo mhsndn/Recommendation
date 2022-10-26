@@ -52,11 +52,11 @@ const Recommendation=()=>{
                <form  className={classes.recommendationForm} onSubmit={Submit} ref={formRef}>
                   <div>
                      <label>Name:</label>
-                     <input type="text" placeholder=" name "  onChange={(e)=>SetForm('name',e.target.value)}/>
+                     <input type="text" placeholder=" name "  onChange={(e)=>SetForm('name',e.target.value.trim())}/>
                   </div>
                   <div>
                      <label>Recommendation:</label>
-                     <textarea className={classes.textArea} placeholder="Enter your note here..." onChange={(e)=>SetForm('recommendation',e.target.value)}></textarea>
+                     <textarea className={classes.textArea} placeholder="Enter your note here..." onChange={(e)=>SetForm('recommendation',e.target.value.trim())}></textarea>
                      <button type='submit'>submit</button>
                   </div> 
                </form >
