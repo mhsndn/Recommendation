@@ -16,7 +16,7 @@ const rows=responseTableData?.map(row=>{
    return(<tr key={row.id} >
             <td>{row.name}</td>
             <td>{row.recommendation}</td>
-            <td> <textarea onChange={(e)=>setDashboardForm('adminResponse',e.target.value,row.id)} defaultValue={row.adminResponse}></textarea> </td>
+            <td> <textarea className={classes.textArea} onChange={(e)=>setDashboardForm('adminResponse',e.target.value,row.id)} defaultValue={row.adminResponse}></textarea> </td>
    </tr>)
 })
   
@@ -42,7 +42,7 @@ const rows=responseTableData?.map(row=>{
                </tbody>
             </table>
             <form  className={classes.dashboardForm} onSubmit={Submit}>
-            <button type='submit'>submit</button>
+            <button type='submit'>Save</button>
          </form>
       
          </div>
