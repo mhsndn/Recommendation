@@ -38,7 +38,7 @@ const Login=()=>{
             <div className={classes.colleft}>
               <div className={classes.logintext}>
                 <h1>Welcome to </h1>
-                <h2>Irancell Labs</h2>
+                <h2>Recommendation project </h2>
               </div>
             </div>
             <div className={classes.colright}>

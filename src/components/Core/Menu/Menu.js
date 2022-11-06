@@ -6,7 +6,7 @@ const Menu =(props)=>{
        <div>
           <header className={classes.header}>
                 <div>
-                <Link to="/" className={classes.logo}>Irancell Labs</Link>
+                <Link to="/" className={classes.logo}>Recommendation project  </Link>
                     <ul className={classes.menu}>
                     <li><Link to="/dashboard">Dashboard</Link></li>
                     <li><Link to="/">Recomendation</Link></li>
