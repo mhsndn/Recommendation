@@ -1,4 +1,4 @@
-irancell labs project
+Recommendation project  
 Recommendation system – Frontend
 Software Requirements
 1. A React.JS web application which uses Restful web services to manage recommendations.
